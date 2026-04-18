@@ -137,13 +137,14 @@ class ProductionHybridRLAgent:
         history = history or []
         batch = batch or []
         text = f"{issue.get('title', '')} {issue.get('body', '')}".lower()
+        heuristic = self.safe_task1_heuristic(issue)
         metadata = {
-            "type": issue.get("type", "unknown"),
-            "severity": issue.get("severity", "unknown"),
-            "component": issue.get("component") or infer_component(issue),
+            "type": heuristic.bug_type,
+            "severity": heuristic.severity,
+            "component": heuristic.component,
             "impact": issue.get("impact", 0),
             "effort": issue.get("effort", 0),
-            "needs_info": issue.get("needs_info", needs_more_info(issue)),
+            "needs_info": heuristic.needs_info,
         }
         features = [
             f"type:{metadata['type']}",
@@ -212,10 +213,10 @@ class ProductionHybridRLAgent:
         if strategy == "metadata_adjusted":
             action = Action(
                 issue_id=issue["id"],
-                bug_type=issue.get("type") or heuristic.bug_type,
-                severity=issue.get("severity") or heuristic.severity,
-                component=issue.get("component") or heuristic.component,
-                needs_info=issue.get("needs_info", heuristic.needs_info),
+                bug_type=heuristic.bug_type,
+                severity=heuristic.severity,
+                component=heuristic.component,
+                needs_info=heuristic.needs_info,
                 confidence=0.85,
                 rationale=["metadata-adjusted RL decision"],
             )
@@ -332,13 +333,17 @@ class ProductionHybridRLAgent:
         )
 
     def _priority_score(self, issue: Dict, history: List[Dict]) -> float:
-        severity = SEVERITY_RANK.get(issue.get("severity", "P3"), 2)
+        heuristic = self.safe_task1_heuristic(issue)
+        severity = SEVERITY_RANK.get(heuristic.severity, 2)
         impact = float(issue.get("impact", severity))
         effort = max(1, float(issue.get("effort", 3)))
-        component = issue.get("component") or infer_component(issue)
-        component_frequency = sum(1 for item in history if (item.get("component") or infer_component(item)) == component)
+        component = heuristic.component
+        
+        history_components = [self.safe_task1_heuristic(item).component for item in history]
+        component_frequency = history_components.count(component)
+        
         frequency_bonus = min(3, component_frequency) * 0.5
-        needs_info_penalty = 1.0 if issue.get("needs_info", False) else 0.0
+        needs_info_penalty = 1.0 if heuristic.needs_info else 0.0
         return severity * 2.0 + impact * 1.5 + frequency_bonus - needs_info_penalty - 0.2 * effort
 
     def print_learning_summary(self):
