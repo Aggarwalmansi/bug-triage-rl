@@ -211,7 +211,7 @@ export default function App() {
         body: JSON.stringify({
           task,
           agent,
-          split: "test",
+          split: "all",
           episodes,
           use_groq: false,
           curriculum: false
