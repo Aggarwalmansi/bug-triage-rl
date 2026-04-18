@@ -1,0 +1,13 @@
+name: bug-triage-env
+description: RL environment for software bug triage using real GitHub issues
+version: 1.0
+
+entrypoint: app:app
+
+tasks:
+  - name: task1
+    description: Bug classification
+  - name: task2
+    description: Duplicate detection
+  - name: task3
+    description: Sprint prioritization

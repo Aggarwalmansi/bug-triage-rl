@@ -1,0 +1,7 @@
+fastapi
+groq
+pydantic
+requests
+uvicorn
+websockets
+aiofiles

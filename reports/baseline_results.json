@@ -1,0 +1,56 @@
+{
+  "dataset": "data/issues.json",
+  "split": "test",
+  "num_train": 16,
+  "num_eval": 4,
+  "results": {
+    "majority": {
+      "task1": {
+        "reward": 0.55,
+        "type": {
+          "accuracy": 0.5
+        },
+        "severity": {
+          "accuracy": 0.5
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 0.7222,
+        "capacity_violations": 0.0
+      }
+    },
+    "heuristic": {
+      "task1": {
+        "reward": 1.0,
+        "type": {
+          "accuracy": 1.0
+        },
+        "severity": {
+          "accuracy": 1.0
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    }
+  }
+}

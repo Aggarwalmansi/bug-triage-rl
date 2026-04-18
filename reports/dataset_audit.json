@@ -1,0 +1,29 @@
+{
+  "dataset": "data/issues.json",
+  "num_issues": 22,
+  "repos": {
+    "vscode": 8,
+    "flask": 11,
+    "numpy": 3
+  },
+  "types": {
+    "bug": 11,
+    "question": 1,
+    "feature": 6,
+    "docs": 4
+  },
+  "severities": {
+    "P1": 5,
+    "P4": 12,
+    "P2": 5
+  },
+  "duplicate_positive": 0,
+  "duplicate_positive_rate": 0.0,
+  "effort_present_after_normalization": 22,
+  "impact_present_after_normalization": 22,
+  "warnings": [
+    "Dataset is too small for research-grade claims.",
+    "No positive duplicate labels; duplicate accuracy is misleading.",
+    "Labels appear seed-scale; validate against human or maintainer decisions before claiming learning."
+  ]
+}

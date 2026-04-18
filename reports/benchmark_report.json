@@ -1,0 +1,308 @@
+{
+  "dataset_audit": {
+    "dataset": "data/issues.json",
+    "num_issues": 22,
+    "repos": {
+      "vscode": 8,
+      "flask": 11,
+      "numpy": 3
+    },
+    "types": {
+      "bug": 11,
+      "question": 1,
+      "feature": 6,
+      "docs": 4
+    },
+    "severities": {
+      "P1": 5,
+      "P4": 12,
+      "P2": 5
+    },
+    "duplicate_positive": 0,
+    "duplicate_positive_rate": 0.0,
+    "effort_present_after_normalization": 22,
+    "impact_present_after_normalization": 22,
+    "warnings": [
+      "Dataset is too small for research-grade claims.",
+      "No positive duplicate labels; duplicate accuracy is misleading.",
+      "Labels appear seed-scale; validate against human or maintainer decisions before claiming learning."
+    ]
+  },
+  "baselines": [
+    "majority",
+    "heuristic",
+    "embedding-centroid",
+    "offline-rl"
+  ],
+  "results": {
+    "majority": {
+      "task1": {
+        "reward": 0.55,
+        "type": {
+          "accuracy": 0.5
+        },
+        "severity": {
+          "accuracy": 0.5
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 0.7222,
+        "capacity_violations": 0.0
+      }
+    },
+    "heuristic": {
+      "task1": {
+        "reward": 1.0,
+        "type": {
+          "accuracy": 1.0
+        },
+        "severity": {
+          "accuracy": 1.0
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    },
+    "embedding-centroid": {
+      "task1": {
+        "reward": 0.55,
+        "type": {
+          "accuracy": 0.5
+        },
+        "severity": {
+          "accuracy": 0.5
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    },
+    "offline-rl": {
+      "task1": {
+        "reward": 0.5125,
+        "type": {
+          "accuracy": 0.5
+        },
+        "severity": {
+          "accuracy": 0.25
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    }
+  },
+  "confidence_intervals": {
+    "majority": {
+      "task1": {
+        "mean": 0.55,
+        "low": 0.47500000000000003,
+        "high": 0.625
+      },
+      "task2": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "task3": {
+        "mean": 0.7222,
+        "low": 0.7222,
+        "high": 0.7222
+      }
+    },
+    "heuristic": {
+      "task1": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "task2": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "task3": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      }
+    },
+    "embedding-centroid": {
+      "task1": {
+        "mean": 0.55,
+        "low": 0.28750000000000003,
+        "high": 0.7250000000000001
+      },
+      "task2": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "task3": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      }
+    },
+    "offline-rl": {
+      "task1": {
+        "mean": 0.5125,
+        "low": 0.2,
+        "high": 0.825
+      },
+      "task2": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      },
+      "task3": {
+        "mean": 1.0,
+        "low": 1.0,
+        "high": 1.0
+      }
+    }
+  },
+  "ablations": {
+    "full": {
+      "task1": {
+        "reward": 0.55,
+        "type": {
+          "accuracy": 0.5
+        },
+        "severity": {
+          "accuracy": 0.5
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    },
+    "no_comments": {
+      "task1": {
+        "reward": 0.55,
+        "type": {
+          "accuracy": 0.5
+        },
+        "severity": {
+          "accuracy": 0.5
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    },
+    "no_labels": {
+      "task1": {
+        "reward": 0.55,
+        "type": {
+          "accuracy": 0.5
+        },
+        "severity": {
+          "accuracy": 0.5
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    },
+    "title_only": {
+      "task1": {
+        "reward": 0.625,
+        "type": {
+          "accuracy": 0.75
+        },
+        "severity": {
+          "accuracy": 0.75
+        }
+      },
+      "task2": {
+        "accuracy": 1.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "positive_rate": 0.0,
+        "reward": 1.0,
+        "warning": "No positive duplicate labels in this split; accuracy can be misleading."
+      },
+      "task3": {
+        "mean_reward": 1.0,
+        "capacity_violations": 0.0
+      }
+    }
+  },
+  "human_eval": {
+    "rubric": "docs/human_evaluation_rubric.md",
+    "error_taxonomy": "docs/error_taxonomy.md",
+    "template": "docs/benchmark_report_template.md"
+  }
+}
